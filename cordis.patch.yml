@@ -1,0 +1,3 @@
+- insert:
+    - id: side-conversation
+      name: dsh-plugin-side-conversation

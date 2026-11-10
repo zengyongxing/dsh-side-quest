@@ -1,0 +1,54 @@
+{
+  "name": "dsh-plugin-side-conversation",
+  "version": "0.1.0",
+  "description": "Temporary read-only side conversation for the current DSH session.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zengyongxing/dsh-side-quest.git"
+  },
+  "homepage": "https://github.com/zengyongxing/dsh-side-quest",
+  "bugs": {
+    "url": "https://github.com/zengyongxing/dsh-side-quest/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "side-conversation",
+    "side-quest"
+  ],
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "docs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "node test/host.mjs && node test/client.mjs"
+  }
+}
